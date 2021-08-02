@@ -1,0 +1,35 @@
+# Configuration file for Gammu SMS Daemon
+
+# Gammu library configuration, see gammurc(5)
+[gammu]
+# Please configure this!
+#  port = /dev/null
+device = /dev/ttyUSB0
+connection = at
+# Debugging
+#logformat = textall
+
+# SMSD configuration, see gammu-smsdrc(5)
+[smsd]
+service = files
+#logfile = syslog
+PIN = 1234
+CheckSecurity = 0
+CommTimeout = 1
+ReceiveFrequency = 1
+
+
+
+RunOnReceive = node /home/pi/Documents/nodemailer.js
+logfile = /var/log/smsd.log
+debuglevel = 0
+
+
+# Increase for debugging information
+# debuglevel = 0
+
+# Paths where messages are stored
+inboxpath = /var/spool/gammu/inbox/
+outboxpath = /var/spool/gammu/outbox/
+sentsmspath = /var/spool/gammu/sent/
+errorsmspath = /var/spool/gammu/error/
